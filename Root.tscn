@@ -35,11 +35,11 @@ position = Vector2( 460, -198 )
 rotation = -1.57079
 
 [node name="piece_corner_blue" parent="Gameplay" instance=ExtResource( 8 )]
-position = Vector2( 710, -198 )
+position = Vector2( 710, 51 )
 rotation = -1.57079
 
 [node name="piece_line_blue" parent="Gameplay" instance=ExtResource( 7 )]
-position = Vector2( 710, 53 )
+position = Vector2( 460, 304 )
 rotation = -1.57079
 
 [node name="piece_main_rose" parent="Gameplay" instance=ExtResource( 9 )]
@@ -47,10 +47,10 @@ position = Vector2( 208, 305 )
 rotation = 1.57079
 
 [node name="piece_main_rose2" parent="Gameplay" instance=ExtResource( 9 )]
-position = Vector2( 710, 304 )
+position = Vector2( 461, 53 )
 
 [node name="piece_main_rose3" parent="Gameplay" instance=ExtResource( 10 )]
-position = Vector2( 458, 304 )
+position = Vector2( 709, 304 )
 rotation = -3.14158
 
 [node name="Background" type="Node2D" parent="."]
