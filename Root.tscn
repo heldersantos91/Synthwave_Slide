@@ -71,5 +71,5 @@ __meta__ = {
 
 [node name="Loop_inicio_jogo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -20.0
+volume_db = -11.697
 autoplay = true
