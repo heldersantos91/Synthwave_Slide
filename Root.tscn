@@ -1,19 +1,21 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scenes/Base.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Pieces/piece_main_rose.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Empty Space.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Piece.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Foreground_Animation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Exports/graphics/background/background.png" type="Texture" id=4]
 [ext_resource path="res://Exports/graphics/background/levels/level_1.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Pieces/piece_main_blue.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Pieces/piece_line_blue.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Pieces/piece_corner_blue.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Pieces/piece_corner_rose.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Pieces/piece_line_rose.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Exports/graphics/gameplay/piece_main_rose.png" type="Texture" id=6]
+[ext_resource path="res://Exports/graphics/gameplay/piece_main_blue.png" type="Texture" id=7]
+[ext_resource path="res://Exports/graphics/gameplay/piece_line_rose.png" type="Texture" id=8]
+[ext_resource path="res://Exports/graphics/gameplay/piece_line_blue.png" type="Texture" id=9]
+[ext_resource path="res://Exports/graphics/gameplay/piece_corner_rose.png" type="Texture" id=10]
 [ext_resource path="res://Exports/audio/loop1.wav" type="AudioStream" id=11]
+[ext_resource path="res://GameManager.gd" type="Script" id=12]
 
 [node name="Root" type="Node2D"]
 position = Vector2( 508, 488 )
+script = ExtResource( 12 )
 
 [node name="Interface" type="Node2D" parent="."]
 
@@ -27,47 +29,83 @@ texture = ExtResource( 5 )
 
 [node name="Gameplay" type="Node2D" parent="."]
 
-[node name="Piece_End" parent="Gameplay" instance=ExtResource( 2 )]
-position = Vector2( 209, 54 )
+[node name="Piece" parent="Gameplay" instance=ExtResource( 2 )]
+position = Vector2( 716, 304 )
+monitoring = false
+asset = ExtResource( 10 )
 
-[node name="Piece_Start" parent="Gameplay" instance=ExtResource( 6 )]
-position = Vector2( 460, -198 )
-rotation = -1.57079
+[node name="Piece3" parent="Gameplay" instance=ExtResource( 2 )]
+position = Vector2( 204, 304 )
+asset = ExtResource( 7 )
 
-[node name="piece_corner_blue" parent="Gameplay" instance=ExtResource( 8 )]
-position = Vector2( 710, 51 )
-rotation = -1.57079
-
-[node name="piece_line_blue" parent="Gameplay" instance=ExtResource( 7 )]
+[node name="Piece2" parent="Gameplay" instance=ExtResource( 2 )]
 position = Vector2( 460, 304 )
-rotation = -1.57079
+asset = ExtResource( 9 )
 
-[node name="piece_main_rose" parent="Gameplay" instance=ExtResource( 9 )]
-position = Vector2( 208, 305 )
-rotation = 1.57079
+[node name="Piece4" parent="Gameplay" instance=ExtResource( 2 )]
+position = Vector2( 716, 48 )
+asset = ExtResource( 8 )
 
-[node name="piece_main_rose2" parent="Gameplay" instance=ExtResource( 9 )]
-position = Vector2( 461, 53 )
+[node name="Piece5" parent="Gameplay" instance=ExtResource( 2 )]
+position = Vector2( 204, 48 )
+id = 1
+asset = ExtResource( 8 )
 
-[node name="piece_main_rose3" parent="Gameplay" instance=ExtResource( 10 )]
-position = Vector2( 709, 304 )
-rotation = -3.14158
+[node name="Piece7" parent="Gameplay" instance=ExtResource( 2 )]
+position = Vector2( 716, -208 )
+asset = ExtResource( 7 )
+
+[node name="Piece9" parent="Gameplay" instance=ExtResource( 2 )]
+position = Vector2( 460, -208 )
+asset = ExtResource( 6 )
 
 [node name="Background" type="Node2D" parent="."]
-
-[node name="Base" parent="Background" instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 16, -50 )
 
 [node name="Background" type="Sprite" parent="Background"]
 position = Vector2( 452, 53 )
 z_index = -1
-
-[node name="Background" type="Sprite" parent="Background/Background"]
-texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Background" type="Sprite" parent="Background/Background"]
+texture = ExtResource( 4 )
+
+[node name="Empty Space" parent="Background" instance=ExtResource( 1 )]
+position = Vector2( 204, -208 )
+id = 1
+
+[node name="Empty Space2" parent="Background" instance=ExtResource( 1 )]
+position = Vector2( 460, -208 )
+id = 2
+
+[node name="Empty Space3" parent="Background" instance=ExtResource( 1 )]
+position = Vector2( 716, -208 )
+id = 3
+
+[node name="Empty Space4" parent="Background" instance=ExtResource( 1 )]
+position = Vector2( 204, 48 )
+id = 4
+
+[node name="Empty Space5" parent="Background" instance=ExtResource( 1 )]
+position = Vector2( 460, 48 )
+id = 5
+
+[node name="Empty Space6" parent="Background" instance=ExtResource( 1 )]
+position = Vector2( 716, 48 )
+id = 6
+
+[node name="Empty Space7" parent="Background" instance=ExtResource( 1 )]
+position = Vector2( 204, 304 )
+id = 7
+
+[node name="Empty Space8" parent="Background" instance=ExtResource( 1 )]
+position = Vector2( 460, 304 )
+id = 8
+
+[node name="Empty Space9" parent="Background" instance=ExtResource( 1 )]
+position = Vector2( 716, 304 )
+id = 9
 
 [node name="Loop_inicio_jogo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
