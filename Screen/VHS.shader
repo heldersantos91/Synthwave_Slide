@@ -1,9 +1,3 @@
-//SHADER ORIGINALY CREADED BY "FMS_Cat" FROM SHADERTOY
-//PORTED AND MODIFYED TO GODOT BY AHOPNESS (@ahopness)
-//LICENSE : CC0
-//COMATIBLE WITH : GLES2, GLES3
-//SHADERTOY LINK : https://www.shadertoy.com/view/XtBXDt
-
 shader_type canvas_item;
 
 uniform float tape_wave_amount :hint_range (0, .04) = 0.003;
