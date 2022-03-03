@@ -16,10 +16,11 @@
 [ext_resource path="res://Screen/VHS.shader" type="Shader" id=15]
 
 [sub_resource type="ShaderMaterial" id=3]
+render_priority = -1
 shader = ExtResource( 15 )
 shader_param/tape_wave_amount = 0.003
-shader_param/tape_crease_amount = 2.5
-shader_param/color_displacement = 1.0
+shader_param/tape_crease_amount = 2.0
+shader_param/color_displacement = 0.0
 shader_param/lines_velocity = 0.1
 
 [node name="Root" type="Node2D"]
@@ -29,6 +30,7 @@ script = ExtResource( 12 )
 [node name="Interface" type="Node2D" parent="."]
 
 [node name="Background" type="Node2D" parent="."]
+z_index = -1
 
 [node name="Background" type="Sprite" parent="Background"]
 position = Vector2( 452, 53 )
@@ -43,11 +45,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="EFFECTS" type="Control" parent="Background/Background"]
-margin_left = -970.0
-margin_top = -553.0
-margin_right = 968.0
-margin_bottom = 573.0
+[node name="EFFECTS" type="Node2D" parent="Background/Background"]
 
 [node name="VHS" type="ColorRect" parent="Background/Background/EFFECTS"]
 material = SubResource( 3 )
@@ -55,19 +53,20 @@ anchor_left = 0.294
 anchor_top = 0.13
 anchor_right = 0.711
 anchor_bottom = 0.843
-margin_left = -592.772
-margin_top = -160.38
-margin_right = 571.082
-margin_bottom = 165.782
+margin_left = -1006.0
+margin_top = -567.0
+margin_right = 983.0
+margin_bottom = 547.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
 
 [node name="Box" type="Sprite" parent="Background/Background"]
 position = Vector2( 6, -5 )
 texture = ExtResource( 13 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Gameplay" type="Node2D" parent="."]
+process_priority = 2
+z_index = 1
 
 [node name="piece_main_1" parent="Gameplay" instance=ExtResource( 2 )]
 position = Vector2( 204, 304 )
@@ -110,6 +109,8 @@ id = 7
 asset = ExtResource( 10 )
 
 [node name="Foreground" type="Node2D" parent="."]
+process_priority = 1
+z_index = 1
 
 [node name="Level1" type="Sprite" parent="Foreground"]
 position = Vector2( 469, -397 )
