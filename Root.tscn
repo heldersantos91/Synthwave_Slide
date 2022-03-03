@@ -74,6 +74,12 @@ rotation = -1.5708
 id = 2
 asset = ExtResource( 7 )
 
+[node name="piece_main_3" parent="Gameplay" instance=ExtResource( 2 )]
+position = Vector2( 204, 304 )
+rotation = -1.5708
+id = 2
+asset = ExtResource( 7 )
+
 [node name="piece_main_2" parent="Gameplay" instance=ExtResource( 2 )]
 position = Vector2( 460, -208 )
 id = 4
