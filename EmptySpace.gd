@@ -19,6 +19,6 @@ func _on_mouse_entered():
 		var dist_x = abs(piece_to_move.position.x - position.x)
 		var dist_y = abs(piece_to_move.position.y - position.y)
 		
-		if dist_x == 0 or dist_y == 0:
+		if floor(dist_x) == 0 or floor(dist_y) == 0:
 			piece_to_move.position = position
 			piece_to_move = null
