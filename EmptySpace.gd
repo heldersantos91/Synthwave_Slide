@@ -7,6 +7,7 @@ var connected_piece : Piece = null
 
 func _on_area_entered(area):
 	connected_piece = area
+	print("piece id: " + str(connected_piece.id) + " | " + str(id) + " :space id")
 	game_manager.check_level_completion()
 	
 func _on_area_exited(area):
