@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Piece.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Empty Space.tscn" type="PackedScene" id=2]
@@ -15,8 +15,6 @@
 [ext_resource path="res://Exports/audio/loop1.wav" type="AudioStream" id=13]
 [ext_resource path="res://Exports/graphics/background/box.png" type="Texture" id=14]
 
-[sub_resource type="ShaderMaterial" id=4]
-
 [sub_resource type="ShaderMaterial" id=3]
 render_priority = -1
 shader = ExtResource( 4 )
@@ -24,6 +22,48 @@ shader_param/tape_wave_amount = 0.003
 shader_param/tape_crease_amount = 2.0
 shader_param/color_displacement = 0.0
 shader_param/lines_velocity = 0.1
+
+[sub_resource type="ShaderMaterial" id=4]
+
+[sub_resource type="Animation" id=5]
+resource_name = "Light Glow"
+length = 10.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 5, 10 )
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
 
 [node name="Root" type="Node2D"]
 position = Vector2( 508, 488 )
@@ -47,23 +87,32 @@ __meta__ = {
 
 [node name="EFFECTS" type="Node2D" parent="Background/Background"]
 
-[node name="Box" type="Sprite" parent="Background/Background"]
-material = SubResource( 4 )
-position = Vector2( 6, -5 )
-texture = ExtResource( 14 )
-
-[node name="VHS" type="ColorRect" parent="Background"]
+[node name="VHS" type="ColorRect" parent="Background/Background/EFFECTS"]
 material = SubResource( 3 )
 anchor_left = 0.294
 anchor_top = 0.13
 anchor_right = 0.711
 anchor_bottom = 0.843
-margin_left = -514.0
-margin_top = -495.0
-margin_right = 1418.0
-margin_bottom = 600.0
+margin_left = -966.0
+margin_top = -548.0
+margin_right = 966.0
+margin_bottom = 547.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
+
+[node name="Box" type="Sprite" parent="Background/Background"]
+material = SubResource( 4 )
+position = Vector2( 6, -5 )
+texture = ExtResource( 14 )
+
+[node name="Light2D" type="Light2D" parent="Background/Background/Box"]
+texture = ExtResource( 14 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Background/Box/Light2D"]
+playback_default_blend_time = 2.0
+method_call_mode = 1
+"anims/Light Glow" = SubResource( 5 )
+anims/RESET = SubResource( 6 )
 
 [node name="Pieces" type="Node2D" parent="."]
 process_priority = 2
