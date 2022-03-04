@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="PROJECTO TUTORIAL"
-run/main_scene="res://Root.tscn"
+run/main_scene="res://level_1.tscn"
 config/icon="res://Default/icon.png"
 
 [display]
