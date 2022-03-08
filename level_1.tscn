@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Piece.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Empty Space.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Exports/graphics/background/box.png" type="Texture" id=14]
 [ext_resource path="res://Exports/graphics/background/levels/level_1_glow.png" type="Texture" id=15]
 [ext_resource path="res://level_2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Exports/graphics/transition/transition.webm" type="VideoStream" id=17]
 
 [sub_resource type="ShaderMaterial" id=3]
 render_priority = -1
@@ -270,5 +271,10 @@ volume_db = -11.697
 autoplay = true
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+visible = false
+margin_left = -508.0
+margin_top = -487.0
+margin_right = 1418.0
+margin_bottom = 593.0
+stream = ExtResource( 17 )
+autoplay = true
