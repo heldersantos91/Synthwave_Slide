@@ -1,20 +1,21 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Piece.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Empty Space.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameManager.gd" type="Script" id=3]
 [ext_resource path="res://Screen/VHS.shader" type="Shader" id=4]
 [ext_resource path="res://Exports/graphics/gameplay/piece_corner_blue.png" type="Texture" id=5]
-[ext_resource path="res://Exports/graphics/background/background.png" type="Texture" id=6]
-[ext_resource path="res://Exports/graphics/gameplay/piece_main_rose.png" type="Texture" id=7]
-[ext_resource path="res://Exports/graphics/gameplay/piece_line_rose.png" type="Texture" id=8]
+[ext_resource path="res://Exports/graphics/background/background_2.png" type="Texture" id=6]
+[ext_resource path="res://Exports/graphics/gameplay/piece_line_red.png" type="Texture" id=7]
+[ext_resource path="res://Exports/graphics/gameplay/piece_corner_red.png" type="Texture" id=8]
 [ext_resource path="res://Exports/graphics/gameplay/piece_line_blue.png" type="Texture" id=9]
-[ext_resource path="res://Exports/graphics/gameplay/piece_corner_rose.png" type="Texture" id=10]
+[ext_resource path="res://Exports/graphics/gameplay/piece_main_red.png" type="Texture" id=10]
 [ext_resource path="res://Exports/graphics/background/levels/level_2.png" type="Texture" id=11]
 [ext_resource path="res://Exports/graphics/gameplay/piece_main_blue.png" type="Texture" id=12]
 [ext_resource path="res://Exports/audio/loop1.wav" type="AudioStream" id=13]
-[ext_resource path="res://Exports/graphics/background/box.png" type="Texture" id=14]
-[ext_resource path="res://Exports/graphics/background/levels/level_1_glow.png" type="Texture" id=15]
+[ext_resource path="res://Exports/graphics/background/box_2.png" type="Texture" id=14]
+[ext_resource path="res://Exports/graphics/background/levels/level_2_glow.png" type="Texture" id=15]
+[ext_resource path="res://level_3.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ShaderMaterial" id=3]
 render_priority = -1
@@ -111,6 +112,7 @@ tracks/1/keys = {
 [node name="Root" type="Node2D"]
 position = Vector2( 508, 488 )
 script = ExtResource( 3 )
+next_level = ExtResource( 16 )
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -1
@@ -118,17 +120,14 @@ z_index = -1
 [node name="Background" type="Sprite" parent="Background"]
 position = Vector2( 452, 53 )
 z_index = -1
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Background" type="Sprite" parent="Background/Background"]
 texture = ExtResource( 6 )
+
+[node name="VHS Effect" type="Node2D" parent="Background/Background"]
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="VHS Effect" type="Node2D" parent="Background/Background"]
 
 [node name="VHS" type="ColorRect" parent="Background/Background/VHS Effect"]
 material = SubResource( 3 )
@@ -165,43 +164,44 @@ z_index = 1
 
 [node name="piece_main_1" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 204, 304 )
-rotation = -1.5708
-id = 2
+id = 1
 asset = ExtResource( 12 )
 
 [node name="piece_main_2" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 460, -208 )
-id = 4
-asset = ExtResource( 7 )
+rotation = 1.5708
+id = 3
+asset = ExtResource( 10 )
 
 [node name="piece_line_1" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 716, 48 )
-id = 8
-asset = ExtResource( 8 )
+rotation = 1.5708
+id = 5
+asset = ExtResource( 7 )
 
 [node name="piece_line_2" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 460, 304 )
 rotation = -1.5708
-id = 6
+id = 4
 asset = ExtResource( 9 )
 
 [node name="piece_corner_1" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 716, 304 )
 monitoring = false
-id = 9
-asset = ExtResource( 10 )
+id = 8
+asset = ExtResource( 8 )
 
 [node name="piece_corner_2" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 716, -208 )
-rotation = -1.5708
-id = 3
+rotation = 1.5708
+id = 7
 asset = ExtResource( 5 )
 
 [node name="piece_corner_3" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 204, 47.9999 )
-rotation = 1.5708
-id = 7
-asset = ExtResource( 10 )
+rotation = 3.14159
+id = 2
+asset = ExtResource( 8 )
 
 [node name="Foreground" type="Node2D" parent="."]
 process_priority = 1
