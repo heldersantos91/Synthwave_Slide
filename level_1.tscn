@@ -12,7 +12,7 @@
 [ext_resource path="res://Exports/graphics/gameplay/piece_corner_rose.png" type="Texture" id=10]
 [ext_resource path="res://Exports/graphics/background/levels/level_1.png" type="Texture" id=11]
 [ext_resource path="res://Exports/graphics/gameplay/piece_main_blue.png" type="Texture" id=12]
-[ext_resource path="res://Exports/audio/loop1.wav" type="AudioStream" id=13]
+[ext_resource path="res://Exports/audio/background_level1.mp3" type="AudioStream" id=13]
 [ext_resource path="res://Exports/graphics/background/box.png" type="Texture" id=14]
 [ext_resource path="res://Exports/graphics/background/levels/level_1_glow.png" type="Texture" id=15]
 [ext_resource path="res://level_2.tscn" type="PackedScene" id=16]
@@ -162,6 +162,12 @@ method_call_mode = 1
 "anims/Light Glow" = SubResource( 5 )
 anims/RESET = SubResource( 6 )
 
+[node name="background_music" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource( 13 )
+volume_db = -14.0
+autoplay = true
+bus = "Music"
+
 [node name="Pieces" type="Node2D" parent="."]
 process_priority = 2
 z_index = 1
@@ -217,7 +223,6 @@ texture = ExtResource( 11 )
 [node name="Level Glow" type="Light2D" parent="Foreground/Level1"]
 material = SubResource( 7 )
 texture = ExtResource( 15 )
-energy = 0.000881016
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Foreground/Level1/Level Glow"]
 pause_mode = 2
@@ -264,11 +269,6 @@ id = 8
 [node name="Empty Space9" parent="Gameplay Spaces" instance=ExtResource( 2 )]
 position = Vector2( 716, 304 )
 id = 9
-
-[node name="Loop_inicio_jogo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
-volume_db = -11.697
-autoplay = true
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
 visible = false
